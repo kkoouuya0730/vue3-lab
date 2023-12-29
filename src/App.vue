@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { supabase } from './supabase';
-import { useAuthStore } from './stores/auth';
+import { ref } from 'vue'
+import { supabase } from './supabase'
+import { useAuthStore } from './stores/auth'
 import { useRoute, useRouter } from 'vue-router'
 import Header from './components/parts/Header.vue'
 import Footer from './components/parts/Footer.vue'
@@ -27,8 +27,8 @@ const closeDialog = () => {
 const authAction = async (userInfo: UserInfo, mode: string) => {
   try {
     isLoading.value = true
-    let rdata = null;
-    let rerror = null;
+    let rdata = null
+    let rerror = null
 
     switch (mode) {
       case 'signup': {
@@ -41,7 +41,7 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
         })
         rdata = data
         rerror = error
-        break;
+        break
       }
       case 'signin': {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -50,10 +50,10 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
         })
         rdata = data
         rerror = error
-        break;
+        break
       }
       default:
-        break;
+        break
     }
     if (rerror) throw rerror
     if (rdata?.user?.identities?.length === 0) {
@@ -93,14 +93,18 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 <template>
   <div class="app-container">
-
     <div class="header">
       <Header :isLogin="auth.isLoggedIn" @onClickDialogOpen="openDialog" />
     </div>
     <div class="content">
       <RouterView />
-      <UtilAuthDialog :visible="isDialogOpen" :is-loading="isLoading" @onClickLoginButton="authAction"
-        @onClickSignupButton="authAction" @onClickDialogClose="closeDialog" />
+      <UtilAuthDialog
+        :visible="isDialogOpen"
+        :is-loading="isLoading"
+        @onClickLoginButton="authAction"
+        @onClickSignupButton="authAction"
+        @onClickDialogClose="closeDialog"
+      />
     </div>
     <div class="footer">
       <Footer />

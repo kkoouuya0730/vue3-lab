@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LinksTile from '../templates/LinksTile.vue';
-import { useRoute } from "vue-router";
+import LinksTile from '../templates/LinksTile.vue'
+import { useRoute } from 'vue-router'
 
 const DISPLAYLINKSNUM = 30
 const FROM = '2023-11-02'
@@ -46,7 +46,6 @@ const propsMap = [
     from: FROM,
     displayLinksNum: DISPLAYLINKSNUM,
     icon: 'pi pi-shopping-cart'
-
   },
   {
     category: 'entertainment',
@@ -55,7 +54,6 @@ const propsMap = [
     from: FROM,
     displayLinksNum: DISPLAYLINKSNUM,
     icon: 'pi pi-thumbs-up'
-
   },
   {
     category: 'food',
@@ -67,7 +65,7 @@ const propsMap = [
   }
 ]
 
-const route = useRoute();
+const route = useRoute()
 
 const param = route.params
 
@@ -84,7 +82,6 @@ const linksTileProps = propsMap.find((item) => {
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .top-page-content {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LinksTile from '../templates/LinksTile.vue';
+import LinksTile from '../templates/LinksTile.vue'
 import CegoriesTile from '../templates/CegoriesTile.vue'
 
 const DISPLAYLINKSNUM = 10
@@ -25,7 +25,7 @@ const categoryTileProps = {
 <template>
   <div class="top-page-content">
     <div>
-      <CegoriesTile :category-tile-info="categoryTileProps"/>
+      <CegoriesTile :category-tile-info="categoryTileProps" />
       <LinksTile :link-tile-info="linksTileProps" />
     </div>
   </div>

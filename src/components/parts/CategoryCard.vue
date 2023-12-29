@@ -1,10 +1,10 @@
 <script setup lang="ts">
 interface Props {
   categoryInfo: {
-    id: number,
-    title: string,
-    url: string,
-    icon: string,
+    id: number
+    title: string
+    url: string
+    icon: string
     description: string
   }
 }

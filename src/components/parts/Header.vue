@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
-import { useToast } from "primevue/usetoast";
-import menuPageItems from "../../data/myPageMenuItems.json"
-import type { MenuItem } from '@/types/menu';
-const toast = useToast();
+import { ref, computed, watch } from 'vue'
+import { useToast } from 'primevue/usetoast'
+import menuPageItems from '../../data/myPageMenuItems.json'
+import type { MenuItem } from '@/types/menu'
+const toast = useToast()
 
 interface Props {
   isLogin: boolean
@@ -23,11 +23,16 @@ watch(isLogin, (newLogin) => {
 })
 
 const showSuccess = () => {
-  toast.add({ severity: 'success', summary: 'Login Success', detail: 'User Login Success', life: 3000 });
+  toast.add({
+    severity: 'success',
+    summary: 'Login Success',
+    detail: 'User Login Success',
+    life: 3000
+  })
 }
 
 const showMyPageMenu = (event: any) => {
-  menu.value.toggle(event);
+  menu.value.toggle(event)
 }
 
 const loginButtonClick = () => {
@@ -47,11 +52,19 @@ const handleSignOut = () => {
         <RouterLink to="/" class="nav-link">
           <span class="pi pi-home icon"></span>
         </RouterLink>
-        <RouterLink :to="{ path: '/link/latestLink', params: { category: 'latestLink' } }" class="nav-link">
+        <RouterLink
+          :to="{ path: '/link/latestLink', params: { category: 'latestLink' } }"
+          class="nav-link"
+        >
           <span class="pi pi-link"></span>
         </RouterLink>
         <div v-if="isLogin" class="nav-link">
-          <PrButton class="pi pi-user" @click="showMyPageMenu" aria-haspopup="true" aria-controls="overlay_menu">
+          <PrButton
+            class="pi pi-user"
+            @click="showMyPageMenu"
+            aria-haspopup="true"
+            aria-controls="overlay_menu"
+          >
           </PrButton>
         </div>
         <PrButton v-if="!isLogin" @click="loginButtonClick">Login</PrButton>

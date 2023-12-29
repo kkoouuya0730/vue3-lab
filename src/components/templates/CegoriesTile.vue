@@ -1,8 +1,8 @@
 <!-- API通信してcategoriesのデータを取得する -->
 <!-- 取得したデータを加工して子コンポーネントに流すだけ -->
 <script setup lang="ts">
-import { ref } from 'vue';
-import CategoryCard from '../parts/CategoryCard.vue';
+import { ref } from 'vue'
+import CategoryCard from '../parts/CategoryCard.vue'
 import type { CategoryTile } from '../../types/link.d.ts'
 
 interface Props {
@@ -59,7 +59,7 @@ const categories = ref([
     icon: 'pi pi-reddit',
     url: 'xxxxxxxxxxxxxxx',
     description: 'Discover new recipes and cooking tips from around the world.'
-  },
+  }
 ])
 </script>
 
@@ -70,10 +70,13 @@ const categories = ref([
     </div>
     <ul class="nav-list">
       <li v-for="category in categories" :key="category.id">
-        <RouterLink :to="{
-          path: '/link/' + category.category,
-          params: { category: category.category }
-        }" class="nav-category">
+        <RouterLink
+          :to="{
+            path: '/link/' + category.category,
+            params: { category: category.category }
+          }"
+          class="nav-category"
+        >
           <CategoryCard :category-info="category" />
         </RouterLink>
       </li>
@@ -102,7 +105,7 @@ const categories = ref([
 }
 
 .nav-list::after {
-  content: "";
+  content: '';
   width: 30%;
 }
 

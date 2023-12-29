@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Link } from '@/types/link';
+import type { Link } from '@/types/link'
 
 interface Props {
   linkInfo: Link
@@ -12,7 +12,7 @@ defineProps<Props>()
   <PrCard class="card-item">
     <template #header>
       <!-- これで画像表示できるならpublic/までは指定されていることになる -->
-      <img alt="user header" :src="`${linkInfo.urlToImage}`"  class="link-card-header" />
+      <img alt="user header" :src="`${linkInfo.urlToImage}`" class="link-card-header" />
     </template>
     <template #title> {{ linkInfo.title }} </template>
     <template #content>

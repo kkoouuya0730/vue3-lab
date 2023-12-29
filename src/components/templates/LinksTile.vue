@@ -1,9 +1,9 @@
 <!-- API通信してlinksのデータを取得する -->
 <!-- 取得したデータを加工して子コンポーネントに流すだけ -->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import LinkCard from '../parts/LinkCard.vue';
-import { getRequest } from '@/util/api';
+import { ref, onMounted } from 'vue'
+import LinkCard from '../parts/LinkCard.vue'
+import { getRequest } from '@/util/api'
 import type { Link, LinkTile } from '../../types/link.d.ts'
 
 interface Props {
@@ -21,12 +21,10 @@ const newsLinks = ref<ResponseLink>()
 const props = defineProps<Props>()
 
 onMounted(async () => {
-  newsLinks.value = await getRequest(
-    {
-      searchWord: props.linkTileInfo.searchWord,
-      from: props.linkTileInfo.from
-    }
-  )
+  newsLinks.value = await getRequest({
+    searchWord: props.linkTileInfo.searchWord,
+    from: props.linkTileInfo.from
+  })
   newsLinks.value?.articles.splice(
     props.linkTileInfo.displayLinksNum,
     newsLinks.value?.articles.length
@@ -36,7 +34,7 @@ onMounted(async () => {
 
 <template>
   <div class="links-content">
-    <div class="links-header" >
+    <div class="links-header">
       <p class="pi pi-link" style="font-size: 2.5rem"></p>
       <h2>{{ linkTileInfo.title }}</h2>
     </div>
@@ -73,7 +71,7 @@ onMounted(async () => {
 }
 
 .nav-list::after {
-  content: "";
+  content: '';
   width: calc(50% - 10px);
 }
 

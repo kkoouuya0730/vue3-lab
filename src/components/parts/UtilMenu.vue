@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { MenuItem } from '@/types/menu';
+import { ref } from 'vue'
+import type { MenuItem } from '@/types/menu'
 interface Props {
   menuItems: MenuItem[]
   propsRef: string
   propsId: string
 }
-const menu = ref();
+const menu = ref()
 
 defineProps<Props>()
 </script>

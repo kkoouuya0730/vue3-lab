@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const footerLinks = ref([
   {
@@ -73,7 +73,7 @@ const footerLinks = ref([
         url: 'https://zenn.dev/terms/transaction-law'
       }
     ]
-  },
+  }
 ])
 </script>
 
@@ -81,7 +81,7 @@ const footerLinks = ref([
   <div class="footer-content">
     <div class="footer-title">
       <h2>TEST</h2>
-      <p>エンジニアのための<br>情報共有コミュニティ</p>
+      <p>エンジニアのための<br />情報共有コミュニティ</p>
     </div>
     <div class="footer-items">
       <ul class="footer-links" v-for="footerLink in footerLinks" :key="footerLink.id">
@@ -93,7 +93,6 @@ const footerLinks = ref([
         </li>
       </ul>
     </div>
-
   </div>
 </template>
 
@@ -143,6 +142,5 @@ const footerLinks = ref([
 
 .footer-links a:hover {
   text-decoration: underline;
-
 }
 </style>
