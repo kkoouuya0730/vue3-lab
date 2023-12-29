@@ -7,7 +7,7 @@ const auth = useAuthStore();
 
 import Header from './components/parts/Header.vue'
 import Footer from './components/parts/Footer.vue'
-import UtilDialog from './components/parts/utils/UtilDialog.vue';
+import UtilAuthDialog from './components/parts/utils/UtilAuthDialog.vue';
 import 'ress'
 
 const isDialogOpen = ref(false)
@@ -77,7 +77,7 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
     </div>
     <div class="content">
       <RouterView />
-      <UtilDialog :visible="isDialogOpen" :is-loading="isLoading" @onClickLoginButton="authAction"
+      <UtilAuthDialog :visible="isDialogOpen" :is-loading="isLoading" @onClickLoginButton="authAction"
         @onClickSignupButton="authAction" @onClickDialogClose="closeDialog" />
     </div>
     <div class="footer">
