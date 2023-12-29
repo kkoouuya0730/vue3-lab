@@ -18,6 +18,7 @@ const emit = defineEmits(['onClickDialogClose', 'onClickLoginButton', 'onClickSi
 const mode = ref(MODE.SIGNUP)
 const inputEmail = ref('')
 const inputPassword = ref('')
+// TODO refにしたほうがresetの時楽かも
 const inputUserInfo = reactive(
   {
     email: '',
@@ -37,6 +38,7 @@ const switchMode = () => {
 }
 
 const cancelButtonClick = () => {
+  clearUserInfo()
   emit('onClickDialogClose')
 }
 
@@ -52,6 +54,7 @@ const handlerButtonClick = () => {
     default:
       break;
   }
+  clearUserInfo()
 }
 
 const validateInputUserInfo = () => {
@@ -64,6 +67,13 @@ const validateInputUserInfo = () => {
     alert(error.message)
     emit('onClickDialogClose')
   }
+}
+
+const clearUserInfo = () => {
+  inputEmail.value = ''
+  inputPassword.value = ''
+  inputUserInfo.email = ''
+  inputUserInfo.password = ''
 }
 
 </script>

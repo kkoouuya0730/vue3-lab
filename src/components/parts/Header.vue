@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import { useAuthStore } from '../../stores/auth';
 import { useToast } from "primevue/usetoast";
 import menuPageItems from "../../data/myPageMenuItems.json"
 import type { MenuItem } from '@/types/menu';
-const auth = useAuthStore();
 const toast = useToast();
 
 interface Props {
@@ -12,7 +10,7 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits(['onClickDialogOpen'])
+const emit = defineEmits(['onClickDialogOpen', 'onClickLogout'])
 
 const items: MenuItem[] = menuPageItems.menuItems
 const menu = ref()
@@ -36,8 +34,8 @@ const loginButtonClick = () => {
   emit('onClickDialogOpen')
 }
 
-const logoutClick = () => {
-  auth.clearUser()
+const handleSignOut = () => {
+  emit('onClickLogout')
 }
 </script>
 
@@ -66,7 +64,7 @@ const logoutClick = () => {
                 <span class="ml-2">{{ item.label }}</span>
               </a>
             </router-link>
-            <div v-else style="cursor: pointer;" @click="logoutClick">
+            <div v-else style="cursor: pointer" @click="handleSignOut">
               <span :class="item.icon" />
               <span class="ml-2">{{ item.label }}</span>
             </div>

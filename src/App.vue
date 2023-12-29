@@ -2,13 +2,16 @@
 import { ref } from 'vue';
 import { supabase } from './supabase';
 import { useAuthStore } from './stores/auth';
-import type { UserInfo } from './types/auth';
-const auth = useAuthStore();
-
+import { useRoute, useRouter } from 'vue-router'
 import Header from './components/parts/Header.vue'
 import Footer from './components/parts/Footer.vue'
-import UtilAuthDialog from './components/parts/utils/UtilAuthDialog.vue';
+import UtilAuthDialog from './components/parts/utils/UtilAuthDialog.vue'
+import type { UserInfo } from './types/auth'
 import 'ress'
+
+const auth = useAuthStore()
+const route = useRoute()
+const router = useRouter()
 
 const isDialogOpen = ref(false)
 const isLoading = ref(false)
@@ -67,7 +70,26 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
   }
 }
 
-</script> 
+const signOut = async () => {
+  isLoading.value = true
+  try {
+    const { error } = await supabase.auth.signOut()
+    auth.clearUser()
+    if (error) throw error
+
+    if (route.meta.requiresAuth) router.push({ name: 'top' })
+  } catch (error: any) {
+    alert(error.message)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event == 'SIGNED_IN' && session) auth.setUser(session.user)
+  if (event == 'SIGNED_OUT') auth.clearUser()
+})
+</script>
 
 <template>
   <div class="app-container">
