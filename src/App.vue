@@ -44,10 +44,11 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
         break
       }
       case 'signin': {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: userInfo.email,
-          password: userInfo.password
-        })
+        const { data, error } =
+          await supabase.auth.signInWithPassword({
+            email: userInfo.email,
+            password: userInfo.password
+          })
         rdata = data
         rerror = error
         break
@@ -94,7 +95,10 @@ supabase.auth.onAuthStateChange((event, session) => {
 <template>
   <div class="app-container">
     <div class="header">
-      <Header :isLogin="auth.isLoggedIn" @onClickDialogOpen="openDialog" />
+      <Header
+        :isLogin="auth.isLoggedIn"
+        @onClickDialogOpen="openDialog"
+      />
     </div>
     <div class="content">
       <RouterView />

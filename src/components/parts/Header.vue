@@ -53,7 +53,10 @@ const handleSignOut = () => {
           <span class="pi pi-home icon"></span>
         </RouterLink>
         <RouterLink
-          :to="{ path: '/link/latestLink', params: { category: 'latestLink' } }"
+          :to="{
+            path: '/link/latestLink',
+            params: { category: 'latestLink' }
+          }"
           class="nav-link"
         >
           <span class="pi pi-link"></span>
@@ -67,17 +70,39 @@ const handleSignOut = () => {
           >
           </PrButton>
         </div>
-        <PrButton v-if="!isLogin" @click="loginButtonClick">Login</PrButton>
+        <PrButton v-if="!isLogin" @click="loginButtonClick"
+          >Login</PrButton
+        >
         <PrToast />
-        <PrMenu ref="menu" id="overlay_menu" :model="items" :popup="true" class="my-page-menu">
+        <PrMenu
+          ref="menu"
+          id="overlay_menu"
+          :model="items"
+          :popup="true"
+          class="my-page-menu"
+        >
           <template #item="{ item, props }">
-            <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-              <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+            <router-link
+              v-if="item.route"
+              v-slot="{ href, navigate }"
+              :to="item.route"
+              custom
+            >
+              <a
+                v-ripple
+                :href="href"
+                v-bind="props.action"
+                @click="navigate"
+              >
                 <span :class="item.icon" />
                 <span class="ml-2">{{ item.label }}</span>
               </a>
             </router-link>
-            <div v-else style="cursor: pointer" @click="handleSignOut">
+            <div
+              v-else
+              style="cursor: pointer"
+              @click="handleSignOut"
+            >
               <span :class="item.icon" />
               <span class="ml-2">{{ item.label }}</span>
             </div>

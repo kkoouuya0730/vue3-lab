@@ -84,7 +84,11 @@ const footerLinks = ref([
       <p>エンジニアのための<br />情報共有コミュニティ</p>
     </div>
     <div class="footer-items">
-      <ul class="footer-links" v-for="footerLink in footerLinks" :key="footerLink.id">
+      <ul
+        class="footer-links"
+        v-for="footerLink in footerLinks"
+        :key="footerLink.id"
+      >
         <h3>{{ footerLink.title }}</h3>
         <li v-for="navi in footerLink.links" :key="navi.title">
           <a :href="navi.url" target="_blank">
