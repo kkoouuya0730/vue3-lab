@@ -18,7 +18,8 @@ const categories = ref([
     title: 'Technology',
     icon: 'pi pi-desktop',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Stay up-to-date with the latest tech news and trends.'
+    description:
+      'Stay up-to-date with the latest tech news and trends.'
   },
   {
     id: 1,
@@ -26,7 +27,8 @@ const categories = ref([
     title: 'Music',
     icon: 'pi pi-volume-up',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Discover new music and stay up-to-date with your favorite atrists.'
+    description:
+      'Discover new music and stay up-to-date with your favorite atrists.'
   },
   {
     id: 2,
@@ -34,7 +36,8 @@ const categories = ref([
     title: 'Education',
     icon: 'pi pi-book',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Learn something new every day with these educational resources.'
+    description:
+      'Learn something new every day with these educational resources.'
   },
   {
     id: 3,
@@ -42,7 +45,8 @@ const categories = ref([
     title: 'Shopping',
     icon: 'pi pi-shopping-cart',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Find the best deals and discounts on your favorite products.'
+    description:
+      'Find the best deals and discounts on your favorite products.'
   },
   {
     id: 4,
@@ -50,7 +54,8 @@ const categories = ref([
     title: 'Entertainment',
     icon: 'pi pi-thumbs-up',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Stay up-to-date with the latest movies, TV shows, and more.'
+    description:
+      'Stay up-to-date with the latest movies, TV shows, and more.'
   },
   {
     id: 5,
@@ -58,7 +63,8 @@ const categories = ref([
     title: 'Food',
     icon: 'pi pi-reddit',
     url: 'xxxxxxxxxxxxxxx',
-    description: 'Discover new recipes and cooking tips from around the world.'
+    description:
+      'Discover new recipes and cooking tips from around the world.'
   }
 ])
 </script>

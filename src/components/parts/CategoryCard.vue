@@ -15,7 +15,10 @@ const props = defineProps<Props>()
 <template>
   <PrCard class="card-item">
     <template #header>
-      <span :class="categoryInfo.icon" class="category-card-icon"></span>
+      <span
+        :class="categoryInfo.icon"
+        class="category-card-icon"
+      ></span>
     </template>
     <template #title> {{ categoryInfo.title }} </template>
     <template #content>

@@ -13,7 +13,11 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits(['onClickDialogClose', 'onClickLoginButton', 'onClickSignupButton'])
+const emit = defineEmits([
+  'onClickDialogClose',
+  'onClickLoginButton',
+  'onClickSignupButton'
+])
 
 const mode = ref(MODE.SIGNUP)
 const inputEmail = ref('')
@@ -27,7 +31,8 @@ const inputUserInfo = reactive({
 const isOpen = computed(() => props.visible)
 const isLoading = computed(() => props.isLoading)
 const isLoginBtnDisabledByValid = computed(() => {
-  if (inputEmail.value === '' || inputPassword.value === '') return true
+  if (inputEmail.value === '' || inputPassword.value === '')
+    return true
   return false
 })
 
@@ -98,7 +103,9 @@ const clearUserInfo = () => {
         "
       >
         <div class="inline-flex flex-column gap-2">
-          <label for="email" class="text-primary-50 font-semibold">Email</label>
+          <label for="email" class="text-primary-50 font-semibold"
+            >Email</label
+          >
           <PrInputText
             v-model="inputEmail"
             id="email"
@@ -107,7 +114,9 @@ const clearUserInfo = () => {
           </PrInputText>
         </div>
         <div class="inline-flex flex-column gap-2">
-          <label for="password" class="text-primary-50 font-semibold">Password</label>
+          <label for="password" class="text-primary-50 font-semibold"
+            >Password</label
+          >
           <PrInputText
             v-model="inputPassword"
             id="password"
@@ -159,7 +168,10 @@ const clearUserInfo = () => {
           ></PrButton>
         </div>
       </div>
-      <PrProgressBar v-if="isLoading" mode="indeterminate"></PrProgressBar>
+      <PrProgressBar
+        v-if="isLoading"
+        mode="indeterminate"
+      ></PrProgressBar>
     </template>
   </PrDialog>
 </template>

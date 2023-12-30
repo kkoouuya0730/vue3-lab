@@ -31,7 +31,8 @@ const router = createRouter({
     {
       path: '/article-manage',
       name: 'ArticleManage',
-      component: () => import('../components/pages/ArticleManage.vue'),
+      component: () =>
+        import('../components/pages/ArticleManage.vue'),
       props: true,
       meta: {
         requiresAuth: true
@@ -58,7 +59,8 @@ const router = createRouter({
     {
       path: '/favorite-articles',
       name: 'FavoriteArticle',
-      component: () => import('../components/pages/FavoriteArticle.vue'),
+      component: () =>
+        import('../components/pages/FavoriteArticle.vue'),
       props: true,
       meta: {
         requiresAuth: true
@@ -85,7 +87,8 @@ const router = createRouter({
     {
       path: '/account-settings',
       name: 'AccountSettings',
-      component: () => import('../components/pages/AccountSetting.vue'),
+      component: () =>
+        import('../components/pages/AccountSetting.vue'),
       props: true,
       meta: {
         requiresAuth: true
