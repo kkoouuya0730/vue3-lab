@@ -16,8 +16,8 @@ const items: MenuItem[] = menuPageItems.menuItems
 const menu = ref()
 const isLogin = computed(() => props.isLogin)
 
-watch(isLogin, (newLogin) => {
-  if (newLogin === true) {
+watch(isLogin, (newLogin, old) => {
+  if (newLogin === true && newLogin === old) {
     showSuccess()
   }
 })
