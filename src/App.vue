@@ -98,6 +98,7 @@ supabase.auth.onAuthStateChange((event, session) => {
       <Header
         :isLogin="auth.isLoggedIn"
         @onClickDialogOpen="openDialog"
+        @onClickLogout="signOut"
       />
     </div>
     <div class="content">
