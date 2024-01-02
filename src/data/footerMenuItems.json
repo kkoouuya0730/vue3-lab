@@ -1,0 +1,76 @@
+{
+  "footerMenuItems": [
+    {
+      "id": 0,
+      "title": "About",
+      "links": [
+        {
+          "title": "Zennについて",
+          "url": "https://zenn.dev/"
+        },
+        {
+          "title": "運営会社",
+          "url": "https://classmethod.jp/"
+        },
+        {
+          "title": "お知らせ・リリース",
+          "url": "https://info.zenn.dev/"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Guides",
+      "links": [
+        {
+          "title": "使い方",
+          "url": "https://zenn.dev/manual"
+        },
+        {
+          "title": "Publication",
+          "url": "https://zenn.dev/publications"
+        },
+        {
+          "title": "よくある質問",
+          "url": "https://zenn.dev/faq"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Links",
+      "links": [
+        {
+          "title": "Twitter",
+          "url": "https://twitter.com/zenn_dev"
+        },
+        {
+          "title": "GitHub",
+          "url": "https://github.com/zenn-dev"
+        },
+        {
+          "title": "メディアキット",
+          "url": "https://zenn.dev/mediakit"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Legal",
+      "links": [
+        {
+          "title": "利用規約",
+          "url": "https://zenn.dev/terms"
+        },
+        {
+          "title": "運営会社",
+          "url": "https://zenn.dev/privacy"
+        },
+        {
+          "title": "特商法表記",
+          "url": "https://zenn.dev/terms/transaction-law"
+        }
+      ]
+    }
+  ]
+}

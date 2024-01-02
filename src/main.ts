@@ -12,6 +12,8 @@ import ProgressSpinner from 'primevue/progressspinner'
 import ProgressBar from 'primevue/progressbar'
 import Toast from 'primevue/toast'
 import Menu from 'primevue/menu'
+import TabMenu from 'primevue/tabmenu'
+import Tag from 'primevue/tag'
 
 import 'primevue/resources/primevue.min.css' // ベース
 import 'primeicons/primeicons.css'
@@ -35,6 +37,8 @@ app.component('PrProgressSpinner', ProgressSpinner)
 app.component('PrProgressBar', ProgressBar)
 app.component('PrToast', Toast)
 app.component('PrMenu', Menu)
+app.component('PrTabMenu', TabMenu)
+app.component('PrTag', Tag)
 app.use(ToastService)
 
 app.mount('#app')

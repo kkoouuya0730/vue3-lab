@@ -2,47 +2,53 @@
   "menuItems": [
     {
       "label": "スクラップの管理",
-      "icon": "",
-      "route": "/scrap-manage"
+      "icon": "pi pi-print",
+      "route": "/dashbord/scrap-manage"
     },
     {
       "label": "記事の管理",
-      "icon": "",
-      "route": "/article-manage"
+      "icon": "pi pi-file",
+      "route": "/dashbord/article-manage"
     },
     {
       "label": "本の管理",
-      "icon": "",
-      "route": "/book-manage"
+      "icon": "pi pi-book",
+      "route": "/dashbord/book-manage"
     },
     {
       "label": "GitHubからのデプロイ",
-      "icon": "",
-      "route": "/github-deploy"
+      "icon": "pi pi-github",
+      "sidebarLabel": "GitHub連携",
+      "sidebarIcon": "pi pi-github",
+      "route": "/dashbord/github-deploy"
     },
     {
       "label": "いいねした投稿",
-      "icon": "",
-      "route": "/favorite-articles"
+      "icon": "pi pi-heart",
+      "sidebarLabel": "ライブラリ",
+      "sidebarIcon": "pi pi-box",
+      "route": "/dashbord/favorite-articles"
     },
     {
       "label": "読んでいる本",
-      "icon": "",
-      "route": "/reading-book"
+      "icon": "pi pi-box",
+      "route": "/dashbord/reading-book"
     },
     {
       "label": "収益ダッシュボード",
-      "icon": "",
-      "route": "/dashbord"
+      "icon": "pi pi-dollar",
+      "sidebarLabel": "収益の管理",
+      "sidebarIcon": "pi pi-dollar",
+      "route": "/dashbord/dashbord"
     },
     {
       "label": "アカウント設定",
-      "icon": "",
-      "route": "/account-settings"
+      "icon": "pi pi-cog",
+      "route": "/dashbord/account-settings"
     },
     {
       "label": "ログアウト",
-      "icon": ""
+      "icon": "pi pi-sign-out"
     }
   ]
 }

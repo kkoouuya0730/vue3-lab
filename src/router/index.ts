@@ -20,79 +20,98 @@ const router = createRouter({
       }
     },
     {
-      path: '/scrap-manage',
-      name: 'ScrapManage',
-      component: () => import('../components/pages/ScrapManage.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/article-manage',
-      name: 'ArticleManage',
-      component: () =>
-        import('../components/pages/ArticleManage.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/book-manage',
-      name: 'BookManage',
-      component: () => import('../components/pages/BookManage.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/github-deploy',
-      name: 'GitHubDeploy',
-      component: () => import('../components/pages/GitHubDeploy.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/favorite-articles',
-      name: 'FavoriteArticle',
-      component: () =>
-        import('../components/pages/FavoriteArticle.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/reading-book',
-      name: 'ReadingBook',
-      component: () => import('../components/pages/ReadingBook.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: '/dashbord',
-      name: 'Dashbord',
-      component: () => import('../components/pages/DashBord.vue'),
-      props: true,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/account-settings',
-      name: 'AccountSettings',
+      name: 'MyPageDashbord',
       component: () =>
-        import('../components/pages/AccountSetting.vue'),
+        import('../components/pages/MyPageDashbord.vue'),
       props: true,
       meta: {
         requiresAuth: true
-      }
+      },
+      children: [
+        {
+          path: '/dashbord/scrap-manage',
+          name: 'ScrapManage',
+          component: () =>
+            import('../components/pages/dashbord/ScrapManage.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/article-manage',
+          name: 'ArticleManage',
+          component: () =>
+            import('../components/pages/dashbord/ArticleManage.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/book-manage',
+          name: 'BookManage',
+          component: () =>
+            import('../components/pages/dashbord/BookManage.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/github-deploy',
+          name: 'GitHubDeploy',
+          component: () =>
+            import('../components/pages/dashbord/GitHubDeploy.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/favorite-articles',
+          name: 'FavoriteArticle',
+          component: () =>
+            import(
+              '../components/pages/dashbord/FavoriteArticle.vue'
+            ),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/reading-book',
+          name: 'ReadingBook',
+          component: () =>
+            import('../components/pages/dashbord/ReadingBook.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/sales',
+          name: 'Dashbord',
+          component: () =>
+            import('../components/pages/dashbord/DashBord.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/dashbord/account-settings',
+          name: 'AccountSettings',
+          component: () =>
+            import('../components/pages/dashbord/AccountSetting.vue'),
+          props: true,
+          meta: {
+            requiresAuth: true
+          }
+        }
+      ]
     }
   ]
 })
