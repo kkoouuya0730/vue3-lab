@@ -1,20 +1,26 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { supabase } from './supabase'
 import { useAuthStore } from './stores/auth'
 import { useRoute, useRouter } from 'vue-router'
 import Header from './components/parts/Header.vue'
 import Footer from './components/parts/Footer.vue'
 import UtilAuthDialog from './components/parts/utils/UtilAuthDialog.vue'
+import { useAppStore } from './stores/app'
 import type { UserInfo } from './types/auth'
 import 'ress'
 
 const auth = useAuthStore()
 const route = useRoute()
 const router = useRouter()
+const useApp = useAppStore()
 
 const isDialogOpen = ref(false)
 const isLoading = ref(false)
+
+const contentStyleClass = computed(() => {
+  return useApp.isFooter ? 'content-footer' : 'content-no-footer'
+})
 
 const openDialog = () => {
   isDialogOpen.value = true
@@ -101,7 +107,7 @@ supabase.auth.onAuthStateChange((event, session) => {
         @onClickLogout="signOut"
       />
     </div>
-    <div class="content">
+    <div :class="contentStyleClass">
       <RouterView />
       <UtilAuthDialog
         :visible="isDialogOpen"
@@ -111,7 +117,7 @@ supabase.auth.onAuthStateChange((event, session) => {
         @onClickDialogClose="closeDialog"
       />
     </div>
-    <div class="footer">
+    <div class="footer" v-if="useApp.isFooter">
       <Footer />
     </div>
   </div>
@@ -126,11 +132,22 @@ supabase.auth.onAuthStateChange((event, session) => {
   width: 100%;
 }
 
-.content {
+/* TODO ここきれいにしたい */
+.content-footer {
   background-color: #ecf5ff;
   display: flex;
   justify-content: center;
   padding: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.content-no-footer {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  padding: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer {

@@ -1,0 +1,16 @@
+{
+  "tabMenus": [
+    {
+      "label": "All"
+    },
+    {
+      "label": "Open"
+    },
+    {
+      "label": "Closed"
+    },
+    {
+      "label": "Archived"
+    }
+  ]
+}
