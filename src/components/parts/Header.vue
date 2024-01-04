@@ -116,23 +116,23 @@ const handleSignOut = () => {
 
 <style>
 .wrapper {
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  margin: 0 auto;
 }
 
 .my-page-menu {
   margin-top: 15px;
 }
 
-.title {
-  margin-left: 30px;
-}
-
 .nav-icons {
   width: 20%;
   display: flex;
   justify-content: space-between;
+}
+.nav-link {
+  margin-right: 20px;
 }
 </style>
