@@ -126,7 +126,6 @@ supabase.auth.onAuthStateChange((event, session) => {
 <style scoped>
 .header {
   background-color: #f8f9fa;
-  padding: 20px;
   position: fixed;
   top: 0;
   width: 100%;

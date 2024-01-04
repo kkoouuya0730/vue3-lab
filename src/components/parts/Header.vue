@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { useToast } from 'primevue/usetoast'
-import { useAppStore } from '@/stores/app'
 import menuPageItems from '../../data/myPageMenuItems.json'
 import type { MenuItem } from '@/types/menu'
 
 const toast = useToast()
-const useApp = useAppStore()
 
 interface Props {
   isLogin: boolean
@@ -36,10 +34,6 @@ const showSuccess = () => {
 
 const showMyPageMenu = (event: any) => {
   menu.value.toggle(event)
-}
-
-const clickMyPageMenu = () => {
-  useApp.setIsFooter(false)
 }
 
 const loginButtonClick = () => {
@@ -122,23 +116,23 @@ const handleSignOut = () => {
 
 <style>
 .wrapper {
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  margin: 0 auto;
 }
 
 .my-page-menu {
   margin-top: 15px;
 }
 
-.title {
-  margin-left: 30px;
-}
-
 .nav-icons {
   width: 20%;
   display: flex;
   justify-content: space-between;
+}
+.nav-link {
+  margin-right: 20px;
 }
 </style>
