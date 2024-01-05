@@ -135,4 +135,9 @@ const handleSignOut = () => {
 .nav-link {
   margin-right: 20px;
 }
+a,
+a:hover,
+a:visited {
+  color: inherit;
+}
 </style>
