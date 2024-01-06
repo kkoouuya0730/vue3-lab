@@ -24,6 +24,7 @@ onBeforeUnmount(() => useApp.setIsFooter(true))
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  z-index: 1;
 }
 
 .side-bar {

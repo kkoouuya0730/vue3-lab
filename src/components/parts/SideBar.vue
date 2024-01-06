@@ -12,7 +12,7 @@ const items: MenuItem[] = menuPageItems.menuItems
           <span
             :class="item.sidebarIcon ? item.sidebarIcon : item.icon"
           />
-          <span>
+          <span class="link-title">
             {{ item.sidebarLabel ? item.sidebarLabel : item.label }}
           </span>
         </PrButton>
@@ -30,5 +30,9 @@ const items: MenuItem[] = menuPageItems.menuItems
   margin-bottom: 15px;
   font-size: large;
   white-space: nowrap;
+}
+
+.link-title {
+  margin-left: 10px;
 }
 </style>
