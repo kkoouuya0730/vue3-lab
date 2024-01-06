@@ -22,12 +22,14 @@ onBeforeUnmount(() => useApp.setIsFooter(true))
 <style>
 .container {
   display: flex;
+  justify-content: flex-start;
   width: 100%;
+  z-index: 1;
 }
 
 .side-bar {
   margin-right: 50px;
-  width: 190px;
+  width: auto;
 }
 
 .view {

@@ -105,8 +105,7 @@ const createHref = (scrap: Scrap) => {
   text-decoration: none;
   color: black;
 }
-.scrap-manage-container {
-}
+
 .artciles {
   list-style: none;
   margin-top: 20px;
@@ -128,9 +127,6 @@ const createHref = (scrap: Scrap) => {
 
 .pr-input-text {
   width: 100%;
-}
-
-.tab-menu {
 }
 
 .scrap-footer {
