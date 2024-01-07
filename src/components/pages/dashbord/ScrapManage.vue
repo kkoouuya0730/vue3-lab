@@ -1,20 +1,41 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 import scrapTabMenu from '../../../data/scrapTabMenu.json'
-import scrapData from '../../../data/scrapData.json'
+import { supabase } from '@/supabase'
 
-type Scrap = (typeof SCRAPS)[number]
+import type { Scrap } from '@/types/scrap'
 
-const SCRAPS = scrapData.scraps
+const scraps = ref<Scrap[]>([])
+
+onMounted(() => {
+  getScraps()
+})
+
+const getScraps = async () => {
+  try {
+    const { data, error, status } = await supabase
+      .from('scraps')
+      .select('*')
+    if (error && status !== 406) throw error
+
+    if (data) {
+      scraps.value = data
+    }
+  } catch (error: any) {
+    alert(error.message)
+  }
+}
+
 const TABMENUS = scrapTabMenu.tabMenus
 
-// TODO enumで0~3の4つしか取れないようにする
-const activeTabIndex = ref(0)
+// 0~3の4つしか取れないようにする
+type ActiveIndexRange = 0 | 1 | 2 | 3
+const activeTabIndex = ref<ActiveIndexRange>(0)
 
 // TODO tabの数が増えたらcaseも増やすことになってしまう
 const filterdScraps = computed(() => {
-  return SCRAPS.filter((scrap: Scrap) => {
+  return scraps.value.filter((scrap: Scrap) => {
     switch (activeTabIndex.value) {
       case 0:
         return scrap
