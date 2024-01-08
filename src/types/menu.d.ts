@@ -4,5 +4,5 @@ export interface MenuItem {
   route?: string | undefined
   sidebarLabel?: string | undefined
   sidebarIcon?: string | undefined
-  command?: () => void
+  command?: string
 }
