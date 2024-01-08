@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import menuPageItems from '../../data/myPageMenuItems.json'
 import type { MenuItem } from '@/types/menu'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 
 const items: MenuItem[] = menuPageItems.menuItems
 
@@ -13,12 +14,27 @@ const sideButtonStyle = (navInfo: MenuItem) => {
   }
   return ''
 }
+
+const onClickSideNav = (navInfo: MenuItem) => {
+  if (navInfo.route) {
+    router.push(navInfo.route)
+  } else if (navInfo.command) {
+    switch (navInfo.command) {
+      case 'logout':
+    }
+  } else {
+    router.push('404')
+  }
+}
 </script>
 <template>
   <div>
     <ul class="side-nav">
       <li class="link" v-for="item in items" :key="item.icon">
-        <PrButton :class="sideButtonStyle(item)">
+        <PrButton
+          :class="sideButtonStyle(item)"
+          @click="onClickSideNav(item)"
+        >
           <span
             :class="item.sidebarIcon ? item.sidebarIcon : item.icon"
           />

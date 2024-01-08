@@ -7,6 +7,11 @@ import Header from './components/parts/Header.vue'
 import Footer from './components/parts/Footer.vue'
 import UtilAuthDialog from './components/parts/utils/UtilAuthDialog.vue'
 import { useAppStore } from './stores/app'
+import {
+  signUpSupabase,
+  signInSupabase,
+  signOutSupabase
+} from '@/supabase'
 import type { UserInfo } from './types/auth'
 import 'ress'
 
@@ -33,41 +38,25 @@ const closeDialog = () => {
 const authAction = async (userInfo: UserInfo, mode: string) => {
   try {
     isLoading.value = true
-    let rdata = null
-    let rerror = null
+    let data = null
 
     switch (mode) {
       case 'signup': {
-        const { data, error } = await supabase.auth.signUp({
-          email: userInfo.email,
-          password: userInfo.password,
-          options: {
-            emailRedirectTo: 'http://localhost:5173'
-          }
-        })
-        rdata = data
-        rerror = error
+        data = await signUpSupabase(userInfo)
         break
       }
       case 'signin': {
-        const { data, error } =
-          await supabase.auth.signInWithPassword({
-            email: userInfo.email,
-            password: userInfo.password
-          })
-        rdata = data
-        rerror = error
+        data = await signInSupabase(userInfo)
         break
       }
       default:
         break
     }
-    if (rerror) throw rerror
-    if (rdata?.user?.identities?.length === 0) {
+    if (data?.user?.identities?.length === 0) {
       throw new Error('this mail is already used')
     }
-    if (rdata) {
-      auth.setUser(rdata.user)
+    if (data) {
+      auth.setUser(data.user)
     }
   } catch (error: any) {
     alert(error.message)
@@ -80,9 +69,8 @@ const authAction = async (userInfo: UserInfo, mode: string) => {
 const signOut = async () => {
   isLoading.value = true
   try {
-    const { error } = await supabase.auth.signOut()
+    await signOutSupabase()
     auth.clearUser()
-    if (error) throw error
 
     if (route.meta.requiresAuth) router.push({ name: 'top' })
   } catch (error: any) {
