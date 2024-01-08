@@ -39,7 +39,7 @@
       "icon": "pi pi-dollar",
       "sidebarLabel": "収益の管理",
       "sidebarIcon": "pi pi-dollar",
-      "route": "/dashbord/dashbord"
+      "route": "/dashbord/sales"
     },
     {
       "label": "アカウント設定",
